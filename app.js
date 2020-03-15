@@ -8,7 +8,10 @@ const MongoStore = require('connect-mongo')(session);
 const passport = require('passport')
 const flash = require('connect-flash')
 
-mongoose.connect('mongodb://localhost/restaurant', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/records', {
+  useNewUrlParser: true,
+  useCreateIndex: true
+})
 
 const db = mongoose.connection
 
@@ -59,9 +62,10 @@ app.use((req, res, next) => {
 })
 
 app.use('/', require('./routes/home'))
+app.use('/auth', require('./routes/auth'))
 app.use('/users', require('./routes/user'))
 app.use('/records', require('./routes/record'))
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`App is running at port ${port}`)
 })
