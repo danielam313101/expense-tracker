@@ -1,6 +1,26 @@
 <ul class="list-group">
   {{#each records}}
-  <li class="list-group-item">{{this.name}}</li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <div class="p-3 flex-grow-1 d-flex justify-content-between align-items-center">
+      <div>
+        {{#switch this.category}}
+            {{#case '交通出行'}} <i class="align-middle material-icons">traffic</i> {{/case}}
+            {{#case '家居物業'}} <i class="align-middle material-icons">house</i> {{/case}}
+            {{#case '休閒娛樂'}} <i class="align-middle material-icons">beach_access</i> {{/case}}
+            {{#case '餐飲食品'}} <i class="align-middle material-icons">fastfood</i> {{/case}}
+            {{#case '其他'}} <i class="align-middle material-icons">build</i> {{/case}}
+        {{/switch}}
+        <span class="align-middle">{{this.name}}</span>
+      </div>
+      <div>
+        $ {{this.amount}}
+      </div>
+    </div>
+    <div>
+       <a href="/records/new" class="btn btn-light">修改</a>
+       <a href="/records/new" class="btn btn-light">刪除</a>
+    </div>
+  </li>
   {{/each}}
 </ul>
 <div class="d-flex justify-content-center">

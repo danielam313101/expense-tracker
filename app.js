@@ -26,8 +26,13 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express()
 const port = 3000
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
+var hbsHelpers = exphbs.create({
+  helpers: require("./helper/handlebars.js").helpers,
+  defaultLayout: 'main',
+  extname: '.handlebars'
+});
+app.engine('.handlebars', hbsHelpers.engine);
+app.set('view engine', '.handlebars');
 
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended: true}));
