@@ -1,13 +1,6 @@
+.new-record-container { max-width: 550px;}
+
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
-
-.restaurant-show-title {
-  position: relative;
-  top: -100px;
-  color: white;
-  text-align: center;
-  font-size: 3rem;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}

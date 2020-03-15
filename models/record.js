@@ -15,7 +15,7 @@ const recordSchema = new Schema({
     require: true
   },
   amount: {
-	  type: Decimal128,
+	  type: Schema.Types.Decimal128,
     required: true
   },
   user: {
