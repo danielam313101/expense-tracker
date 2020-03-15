@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')(session);
 const passport = require('passport')
 const flash = require('connect-flash')
 
@@ -34,7 +35,8 @@ app.use(methodOverride('_method'))
 app.use(session({
   secret: 'mySecretKey123098qwerty',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: db })
 }))
 
 app.use(passport.initialize())
