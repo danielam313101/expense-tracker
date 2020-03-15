@@ -1,14 +1,31 @@
+<div class="dropdown text-right">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{category}}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/?category=家居物業">家居物業</a>
+    <a class="dropdown-item" href="/?category=交通出行">交通出行</a>
+    <a class="dropdown-item" href="/?category=休閒娛樂">休閒娛樂</a>
+    <a class="dropdown-item" href="/?category=餐飲食品">餐飲食品</a>
+    <a class="dropdown-item" href="/?category=其他">其他</a>
+    <a class="dropdown-item" href="/">不設類別</a>
+  </div>
+</div>
+
+<h2 class="text-center mb-3">
+  Total Amount: {{totalAmount}}
+</h2>
 <ul class="list-group">
   {{#each records}}
   <li class="list-group-item d-flex justify-content-between align-items-center">
     <div class="p-3 flex-grow-1 d-flex justify-content-between align-items-center">
       <div>
         {{#switch this.category}}
-            {{#case '交通出行'}} <i class="align-middle material-icons">traffic</i> {{/case}}
-            {{#case '家居物業'}} <i class="align-middle material-icons">house</i> {{/case}}
-            {{#case '休閒娛樂'}} <i class="align-middle material-icons">beach_access</i> {{/case}}
-            {{#case '餐飲食品'}} <i class="align-middle material-icons">fastfood</i> {{/case}}
-            {{#case '其他'}} <i class="align-middle material-icons">build</i> {{/case}}
+          {{#case '交通出行'}} <i class="align-middle material-icons">traffic</i> {{/case}}
+          {{#case '家居物業'}} <i class="align-middle material-icons">house</i> {{/case}}
+          {{#case '休閒娛樂'}} <i class="align-middle material-icons">beach_access</i> {{/case}}
+          {{#case '餐飲食品'}} <i class="align-middle material-icons">fastfood</i> {{/case}}
+          {{#case '其他'}} <i class="align-middle material-icons">build</i> {{/case}}
         {{/switch}}
         <span class="align-middle">{{this.name}}</span>
         <small class="form-text text-muted">
