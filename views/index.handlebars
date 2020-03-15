@@ -20,8 +20,10 @@
       </div>
     </div>
     <div>
-       <a href="/records/{{this._id}}/edit" class="btn btn-light">修改</a>
-       <a href="/records/new" class="btn btn-light">刪除</a>
+      <a href="/records/{{this._id}}/edit" class="btn btn-light">修改</a>
+      <form action="/records/{{{this._id}}}?_method=DELETE" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-danger">刪除</button>
+      </form>
     </div>
   </li>
   {{/each}}

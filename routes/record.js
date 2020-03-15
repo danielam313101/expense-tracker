@@ -62,5 +62,18 @@ router.put('/:id', authenticated, (req, res) => {
   })
 })
 
+router.delete('/:id', authenticated, (req, res) => {
+  Record.findOne({_id: req.params.id, user: req.user._id})
+  .then(record => {
+    record.remove()
+  })
+  .then(() => res.redirect('/'))
+  .catch(err => {
+    let errors = []
+    errors.push({ message: `發生錯誤: ${err}` })
+    return res.render('index', {errors})
+  })
+})
+
 
 module.exports = router
