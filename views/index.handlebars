@@ -11,13 +11,16 @@
             {{#case '其他'}} <i class="align-middle material-icons">build</i> {{/case}}
         {{/switch}}
         <span class="align-middle">{{this.name}}</span>
+        <small class="form-text text-muted">
+          {{#formatDate this.date 'YYYY/MM/DD'}}{{/formatDate}}
+        </small>
       </div>
       <div>
         $ {{this.amount}}
       </div>
     </div>
     <div>
-       <a href="/records/new" class="btn btn-light">修改</a>
+       <a href="/records/{{this._id}}/edit" class="btn btn-light">修改</a>
        <a href="/records/new" class="btn btn-light">刪除</a>
     </div>
   </li>

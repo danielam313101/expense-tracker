@@ -1,5 +1,7 @@
+const moment = require('moment')
+
 const register = (Handlebars) => {
-  var helpers = {
+  let helpers = {
     switch: function(value, options) {
       this.switch_value = value;
       return options.fn(this);
@@ -8,6 +10,14 @@ const register = (Handlebars) => {
       if (value == this.switch_value) {
         return options.fn(this);
       }
+    },
+    select: function(selected, options) {
+      return options.fn(this).replace(
+        new RegExp(' value=\"' + selected + '\"'),
+        '$& selected="selected"');
+    },
+    formatDate: function(date, format) {
+      return moment(date).format(format);
     }
   };
 

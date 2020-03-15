@@ -8,6 +8,7 @@ router.get('/', authenticated, (req, res) => {
     .lean()
     .then(records => res.render('index', {records}))
     .catch(err => {
+      let errors = []
       errors.push({ message: `發生錯誤: ${err}` })
       return res.render('index', {errors})
     })
